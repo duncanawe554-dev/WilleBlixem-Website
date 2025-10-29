@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wille Blixem - Premium Perfumes</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Wille Blixem</h1>
+                <nav class="nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#ladies" class="nav-link">Ladies</a>
+                    <a href="#men" class="nav-link">Men</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <div class="auth-section">
+                    <div id="user-info" class="user-info hidden">
+                        <span id="user-email"></span>
+                        <button onclick="logout()" class="logout-btn">Logout</button>
+                    </div>
+                    <div id="login-prompt" class="login-prompt">
+                        <input type="email" id="email-input" placeholder="Enter your email" class="email-input">
+                        <button onclick="login()" class="login-btn">Login</button>
+                    </div>
+                    <button onclick="toggleCart()" class="cart-btn">
+                        <span class="cart-icon">🛍️</span>
+                        <span id="cart-count" class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Discover Your Signature Scent</h2>
+                    <p class="hero-subtitle">Premium fragrances for everyone</p>
+                    <button onclick="scrollToSection('ladies')" class="cta-button">Shop Ladies</button>
+                    <button onclick="scrollToSection('men')" class="cta-button cta-alt">Shop Men</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="ladies" class="perfumes-section">
+            <div class="container">
+                <h2 class="section-title purple">Ladies Collection</h2>
+                <div class="perfumes-grid" id="ladies-perfumes">
+                    <!-- Perfumes will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="men" class="perfumes-section">
+            <div class="container">
+                <h2 class="section-title red">Men's Collection</h2>
+                <div class="perfumes-grid" id="men-perfumes">
+                    <!-- Perfumes will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>📧 <a href="mailto:Willeblixem@gmail.com">Willeblixem@gmail.com</a></p>
+                        <p>📞 <a href="tel:0832550358">083 255 0358</a></p>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <form onsubmit="handleContactForm(event)">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Your Email" required>
+                            <textarea placeholder="Your Message" rows="4" required></textarea>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Cart</h2>
+                <button onclick="toggleCart()" class="close-btn">✖</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total: </span>
+                    <span id="cart-total">R0</span>
+                </div>
+                <button onclick="checkout()" class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Please Login</h2>
+                <button onclick="closeLoginModal()" class="close-btn">✖</button>
+            </div>
+            <div class="login-form">
+                <p>You need to be logged in to checkout</p>
+                <input type="email" id="modal-email-input" placeholder="Enter your email" required>
+                <button onclick="modalLogin()" class="login-btn">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Wille Blixem. All rights reserved. | Built By Duncan Brits</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
